@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -61,7 +62,6 @@ public class Expenses extends JFrame {
                         Amount = in.nextLine();
                         Expenses.write(Expense + "," + Amount);
                         Expenses.close();
-
                     } catch (IOException ex) {
                         System.out.println("file gone");
                         throw new RuntimeException(ex);
@@ -72,6 +72,8 @@ public class Expenses extends JFrame {
     }
 
     public static void main(String[] args) {
+        String line;
+        BufferedReader reader;
         Expenses Expensesform = new Expenses();
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter your email");
@@ -89,6 +91,7 @@ public class Expenses extends JFrame {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
     }
     }
 
